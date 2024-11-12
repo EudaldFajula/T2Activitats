@@ -1,43 +1,22 @@
 ﻿using System;
 
-//Pre: The user needs to enter a text
-namespace FajulaEudaldEXTseven
+//Pre: 
+namespace FajulaEudaldEXTeight
 {
-    public class Exerciciseven
+    public class Exercicieight
     {
-        public static string Change(string text)
+        public static void ChangeNumbers(ref int number, ref int numberTwo)
         {
-            int CheckLower = 0;
-            int CheckUpper = 0;
-
-            for (int i = 0; i < text.Length; i++)
-            {
-                if (char.IsUpper(text, i))
-                {
-                    CheckUpper++;
-                }
-                else
-                    CheckLower++;
-            }
-            if (CheckUpper > CheckLower)
-            {
-                return text.ToLower();
-            }
-            else
-            {
-                return text.ToUpper();
-            }
+            int aux = number;
+            number = numberTwo;
+            numberTwo = aux;
         }
         public static void Main()
         {
-            const string Msg = "Please write a text: ";
-            string text = "";
-
-            Console.WriteLine(Msg);
+            int number = 4, numberTwo = 5;
             try
             {
-                text = Console.ReadLine();
-                Console.WriteLine($"Your text: {Change(text)}");
+                ChangeNumbers(ref number, ref numberTwo);
             }
             catch (Exception)
             {
@@ -46,4 +25,4 @@ namespace FajulaEudaldEXTseven
         }
     }
 }
-//Post: The user will see his text transformed to upper or lower
+//Post: The numbers are changed
