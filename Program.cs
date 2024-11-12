@@ -1,27 +1,43 @@
 ﻿using System;
 
-//Pre: The user needs to enter a number 
-namespace FajulaEudaldEXTsix
+//Pre: The user needs to enter a text
+namespace FajulaEudaldEXTseven
 {
-    public class Exercicisix
+    public class Exerciciseven
     {
-        public static void AbsoluteNumber(int number)
+        public static string Change(string text)
         {
-            
-            if (number < 0)
+            int CheckLower = 0;
+            int CheckUpper = 0;
+
+            for (int i = 0; i < text.Length; i++)
             {
-                Console.WriteLine(number = number * -1);
+                if (char.IsUpper(text, i))
+                {
+                    CheckUpper++;
+                }
+                else
+                    CheckLower++;
+            }
+            if (CheckUpper > CheckLower)
+            {
+                return text.ToLower();
+            }
+            else
+            {
+                return text.ToUpper();
             }
         }
         public static void Main()
         {
-            const string Msg = "Please write a number: ";
-            int number;
+            const string Msg = "Please write a text: ";
+            string text = "";
+
             Console.WriteLine(Msg);
             try
             {
-                number = Convert.ToInt32(Console.ReadLine());
-                AbsoluteNumber(number);
+                text = Console.ReadLine();
+                Console.WriteLine($"Your text: {Change(text)}");
             }
             catch (Exception)
             {
@@ -30,4 +46,4 @@ namespace FajulaEudaldEXTsix
         }
     }
 }
-//Post: The user will know see his number in absolute
+//Post: The user will see his text transformed to upper or lower
