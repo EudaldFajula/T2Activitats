@@ -1,6 +1,5 @@
 ﻿using System;
 
-
 //Pre: The user needs to enter a number 
 namespace FajulaEudaldEXTone
 {
