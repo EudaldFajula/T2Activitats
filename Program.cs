@@ -1,35 +1,41 @@
 ﻿using System;
 
-//Pre: The user needs to enter a number 
-namespace FajulaEudaldEXTone
+/// Pre: The user needs to enter a number and a number for exponential
+
+namespace FajulaEudaldEXTtwo
 {
-    public class Exercicione
+    public class Exercicitwo
     {
-        public static bool NaturalNumber(int numUser)
+        public static int Exponential(int number, int exponential)
         {
-            return numUser > 0;
+
+            for (int i = 0; i < exponential - 1; i++)
+            {
+                number = number * exponential;
+            }
+            return number;
+
         }
         public static void Main()
         {
-            // Inici Exercici 1
-            const string Msg = "Please write a number: ";
-            const string NaturalNum = "És natural";
-            const string NoNaturalNum = "No és natural";
-            const string ErrorNoNum = "ERROR no es un numero";
-
-            int numUser;
-            Console.WriteLine(Msg);
+            const string MsgNormalNum = "Please write a number: ";
+            const string MsgPowerNum = "Please write a number for exponential: ";
+            const string Return = "Your number is: {0}";
+            int number;
+            int exponential;
+            Console.WriteLine(MsgNormalNum);
             try
             {
-                numUser = Convert.ToInt32(Console.ReadLine());
-                Console.WriteLine(NaturalNumber(numUser) ? NaturalNum : NoNaturalNum);
+                number = Convert.ToInt32(Console.ReadLine());
+                Console.WriteLine(MsgPowerNum);
+                exponential = Convert.ToInt32(Console.ReadLine());
+                Console.WriteLine(Return, Exponential(number, exponential));
             }
-            catch (FormatException)
+            catch (Exception)
             {
-                Console.WriteLine(ErrorNoNum);
+                Console.WriteLine("ERROR");
             }
-            // Final Exercici 1
         }
     }
 }
-//Post: The user will know if his number is natural or not
+//Post: The user will know the exponential of the number he entered
