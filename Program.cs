@@ -1,27 +1,31 @@
 ﻿using System;
 
 //Pre: The user needs to enter a number 
-namespace FajulaEudaldEXTthree
+namespace FajulaEudaldEXTfour
 {
-    public class Exercicithree
+    public class Exercicifour
     {
-        public static bool NegativeNumber(int number)
+        public static void NaturalNumber(int number)
         {
-            return number < 0;
+            
+            if (number > 0 && number < 100)
+            {
+                Console.WriteLine("Is correct");
+            }
+            else
+            {
+                Console.WriteLine("Is incorrect");
+            }
         }
         public static void Main()
         {
-            const string Msg = "Please write a number: ";
-            const string NoNegative = "Is not negative";
-            const string Negative = "Is negative";
-
             int number;
-
+            const string Msg = "Please write a number that is positive and less than 100: ";
+            Console.WriteLine(Msg);
             try
             {
-                Console.WriteLine(Msg);
                 number = Convert.ToInt32(Console.ReadLine());
-                Console.WriteLine(NegativeNumber(number) ? Negative : NoNegative);
+                NaturalNumber(number);
             }
             catch (Exception)
             {
@@ -30,4 +34,4 @@ namespace FajulaEudaldEXTthree
         }
     }
 }
-//Post: The user will know if his number is negative or not
+//Post: The user will know if his number is negative or not and if his number is under 100
