@@ -1,39 +1,27 @@
 ﻿using System;
 
 //Pre: The user needs to enter a number 
-namespace FajulaEudaldEXTfive
+namespace FajulaEudaldEXTsix
 {
-    public class Exercicifive
+    public class Exercicisix
     {
-        public static void NaturalNumber()
+        public static void AbsoluteNumber(int number)
         {
-            int number;
-            int tries = 3;
-            while (tries > 0)
+            
+            if (number < 0)
             {
-                Console.WriteLine("Please write a number: ");
-                number = Convert.ToInt32(Console.ReadLine());
-                if (number > 0 && tries > 0)
-                {
-                    Console.WriteLine("Is correct");
-                    tries = tries - 5;
-                }
-                else
-                {
-                    Console.WriteLine("Is incorrect");
-                    tries--;
-                }
-            }
-            if (tries == 0)
-            {
-                Console.WriteLine("You dont have more tries");
+                Console.WriteLine(number = number * -1);
             }
         }
         public static void Main()
         {
+            const string Msg = "Please write a number: ";
+            int number;
+            Console.WriteLine(Msg);
             try
             {
-                NaturalNumber();
+                number = Convert.ToInt32(Console.ReadLine());
+                AbsoluteNumber(number);
             }
             catch (Exception)
             {
@@ -42,4 +30,4 @@ namespace FajulaEudaldEXTfive
         }
     }
 }
-//Post: The user will know if his number is negative or not
+//Post: The user will know see his number in absolute
