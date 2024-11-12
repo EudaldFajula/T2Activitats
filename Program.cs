@@ -1,35 +1,27 @@
 ﻿using System;
 
-/// Pre: The user needs to enter a number and a number for exponential
-
-namespace FajulaEudaldEXTtwo
+//Pre: The user needs to enter a number 
+namespace FajulaEudaldEXTthree
 {
-    public class Exercicitwo
+    public class Exercicithree
     {
-        public static int Exponential(int number, int exponential)
+        public static bool NegativeNumber(int number)
         {
-
-            for (int i = 0; i < exponential - 1; i++)
-            {
-                number = number * exponential;
-            }
-            return number;
-
+            return number < 0;
         }
         public static void Main()
         {
-            const string MsgNormalNum = "Please write a number: ";
-            const string MsgPowerNum = "Please write a number for exponential: ";
-            const string Return = "Your number is: {0}";
+            const string Msg = "Please write a number: ";
+            const string NoNegative = "Is not negative";
+            const string Negative = "Is negative";
+
             int number;
-            int exponential;
-            Console.WriteLine(MsgNormalNum);
+
             try
             {
+                Console.WriteLine(Msg);
                 number = Convert.ToInt32(Console.ReadLine());
-                Console.WriteLine(MsgPowerNum);
-                exponential = Convert.ToInt32(Console.ReadLine());
-                Console.WriteLine(Return, Exponential(number, exponential));
+                Console.WriteLine(NegativeNumber(number) ? Negative : NoNegative);
             }
             catch (Exception)
             {
@@ -38,4 +30,4 @@ namespace FajulaEudaldEXTtwo
         }
     }
 }
-//Post: The user will know the exponential of the number he entered
+//Post: The user will know if his number is negative or not
