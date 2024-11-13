@@ -1,50 +1,39 @@
 ﻿using System;
 
-//Pre: The user need to enter a number 
-namespace FajulaEudaldEXTnine
+//Pre: The user need to enter a year 
+namespace FajulaEudaldEXTten
 {
-    public class Exercicinine
+    public class Exerciciten
     {
-        public static int Count(int number)
+        public static bool LeapYear(int year)
         {
-            int count = 0;
-            for (int i = number; i > 0; i /= 10)
+            if (year % 4 == 0)
             {
-                count++;
+                return true;
             }
-            return count;
-        }
-        public static void Power(int number)
-        {
-            int evenSum = 0;
-            int oddSum = 0;
-            int residuo = 0;
-            for (int i = number; i > 0; i /= 10)
+            else
             {
-                residuo = (i % 10);
-                if (residuo % 2 == 0)
-                {
-                    evenSum += residuo;
-                }
-                else
-                {
-                    oddSum += residuo;
-                }
+                return false;
             }
-            Console.WriteLine($"La suma de los dígitos pares es: {evenSum}");
-            Console.WriteLine($"La suma de los dígitos impares es: {oddSum}");
+            
         }
         public static void Main()
         {
             const string Msg = "Introduce un número:";
-            const string MsgCount = "El número tiene {0} dígitos.";
+            const string MsgYearTrue = "El teu any es de traspas";
+            const string MsgYearFlase = "El teu any no es de traspas";
             Console.WriteLine(Msg);
             try
             {
-                int number = Convert.ToInt32(Console.ReadLine());
-                int count = Count(number);
-                Console.WriteLine(MsgCount, count);
-                Power(number);
+                int LeapYearValidate = Convert.ToInt32(Console.ReadLine());
+                if (LeapYear(LeapYearValidate))
+                {
+                    Console.WriteLine(MsgYearTrue);
+                }
+                else
+                {
+                    Console.WriteLine(MsgYearFlase);
+                }
             }
             catch (Exception)
             {
@@ -53,4 +42,4 @@ namespace FajulaEudaldEXTnine
         }
     }
 }   
-//Post: The user will see how long is his number, the odd numbers added up and the even number add up too.
+//Post: The user will know if the year is leap or not.
