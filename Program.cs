@@ -1,39 +1,44 @@
 ﻿using System;
+using static System.Runtime.InteropServices.JavaScript.JSType;
+using System.Numerics;
+using Microsoft.VisualBasic;
 
-//Pre: The user need to enter a year 
-namespace FajulaEudaldEXTten
+//Pre: The user need to enter how many values want to enter
+namespace FajulaEudaldEXTeleven
 {
-    public class Exerciciten
+    public class Exercicieleven
     {
-        public static bool LeapYear(int year)
+        public static int AskHowManyNum()
         {
-            if (year % 4 == 0)
+            const string Msg = "Introdueix quants valors vols introduir:";
+            int number;
+            Console.WriteLine(Msg);
+            number = Convert.ToInt32(Console.ReadLine());
+            return number;
+        }
+        public static int[] EnterNumArray(int HowManyNum)
+        {
+            const string Msg = "Introdueix numero: ";
+            int number;
+            int[] ListValues = new int[HowManyNum];
+            for (int i = 0; i < ListValues.Length; i++)
             {
-                return true;
+                do
+                {
+                    Console.WriteLine(Msg);
+                    number = Convert.ToInt32(Console.ReadLine());
+                    ListValues[i] = number;
+                } while (number < 15 || number > 100);
             }
-            else
-            {
-                return false;
-            }
-            
+            return ListValues;
         }
         public static void Main()
         {
-            const string Msg = "Introduce un número:";
-            const string MsgYearTrue = "El teu any es de traspas";
-            const string MsgYearFlase = "El teu any no es de traspas";
-            Console.WriteLine(Msg);
+            int[] ListValuesTotal;
             try
             {
-                int LeapYearValidate = Convert.ToInt32(Console.ReadLine());
-                if (LeapYear(LeapYearValidate))
-                {
-                    Console.WriteLine(MsgYearTrue);
-                }
-                else
-                {
-                    Console.WriteLine(MsgYearFlase);
-                }
+                int HowManyNum = AskHowManyNum();
+                ListValuesTotal = EnterNumArray(HowManyNum);
             }
             catch (Exception)
             {
@@ -42,4 +47,4 @@ namespace FajulaEudaldEXTten
         }
     }
 }   
-//Post: The user will know if the year is leap or not.
+//Post: The user will have a list of the values he entered
