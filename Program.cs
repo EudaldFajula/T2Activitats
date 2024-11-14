@@ -19,17 +19,27 @@ namespace FajulaEudaldEXTeleven
         public static int[] EnterNumArray(int HowManyNum)
         {
             const string Msg = "Introdueix numero: ";
+            const string MsgTries = "You have {0} tries left";
             int number;
             int[] ListValues = new int[HowManyNum];
-            for (int i = 0; i < ListValues.Length; i++)
+            int tries = 5;
+            int i = 0;
+            do
             {
-                do
+                Console.WriteLine(Msg);
+                Console.WriteLine(MsgTries, tries);
+                number = Convert.ToInt32(Console.ReadLine());
+                if ((number > 15 && number < 100) && tries > 0)
                 {
-                    Console.WriteLine(Msg);
-                    number = Convert.ToInt32(Console.ReadLine());
                     ListValues[i] = number;
-                } while (number < 15 || number > 100);
-            }
+                    i++;
+                }
+                else
+                {
+                    tries--;
+                }
+            }while(tries > 0 && i < ListValues.Length);
+
             return ListValues;
         }
         public static void Main()
