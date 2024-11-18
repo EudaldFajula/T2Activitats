@@ -13,15 +13,13 @@ namespace FajulaEudaldEXTeight
         }
         public static void Main()
         {
-            int number = 4, numberTwo = 5;
-            try
-            {
-                ChangeNumbers(ref number, ref numberTwo);
-            }
-            catch (Exception)
-            {
-                Console.WriteLine("ERROR");
-            }
+            const string Msg = "Enter a number: ";
+            int number, numberTwo;
+            Console.WriteLine(Msg);
+            number = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine(Msg);
+            numberTwo = Convert.ToInt32(Console.ReadLine());
+            ChangeNumbers(ref number, ref numberTwo);
         }
     }
 }
