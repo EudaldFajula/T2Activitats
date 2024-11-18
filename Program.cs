@@ -1,27 +1,30 @@
 ﻿using System;
 
 
-//Pre: The user need to enter minutes
-namespace FajulaEudaldEXTthirteen
+//Pre: The user need to enter two numbers
+namespace FajulaEudaldEXTfourteen
 {
-    public class Exercicithirteen
-    {
-        public static int MinToSec(int minutes)
+    public class Exercicifourteen
+    {   
+        public static bool MaxOrMinim(int number1, int number2)
         {
-            int seconds = minutes * 60;
-            return seconds;
+            return number1 > number2;
         }
-        
         public static void Main()
         {
-            const string Msg = "Introdueix cuants minuts vols: ";
-            const string FinalMsg = "En segons serien: {0}";
-            int minutes;
+            const string Msg = "Introdueix un numero: ";
+            const string MaxNumMsg = "Max num {0}";
+            const string MinNumMsg = "Min num {0}";
+            int number1;
+            int number2;
             Console.WriteLine(Msg);
             try
             {
-                minutes = Convert.ToInt32(Console.ReadLine());
-                Console.WriteLine(FinalMsg, MinToSec(minutes));
+                number1 = Convert.ToInt32(Console.ReadLine());
+                Console.WriteLine(Msg);
+                number2 = Convert.ToInt32(Console.ReadLine());
+                Console.WriteLine(MaxNumMsg, MaxOrMinim(number1, number2) ? number1:number2);
+                Console.WriteLine(MinNumMsg, MaxOrMinim(number1, number2) ? number2:number1);
             }
             catch (Exception)
             {
@@ -30,4 +33,4 @@ namespace FajulaEudaldEXTthirteen
         }
     }
 }   
-//Post: The user will know how many seconds are in the minutes he entered
+//Post: The user will know which number is the maximum and which number is the minimum
