@@ -4,55 +4,31 @@ using System.Numerics;
 using Microsoft.VisualBasic;
 
 //Pre: The user need to enter how many values want to enter
-namespace FajulaEudaldEXTeleven
+namespace FajulaEudaldEXTtwelve
 {
-    public class Exercicieleven
+    public class Exercicitwelve
     {
-        public static int AskHowManyNum()
+        public static double CelsiusToFahrenheit(int Celsuis)
         {
-            const string Msg = "Introdueix quants valors vols introduir:";
-            int number;
-            Console.WriteLine(Msg);
-            number = Convert.ToInt32(Console.ReadLine());
-            return number;
-        }
-        public static int[] EnterNumArray(int HowManyNum)
-        {
-            const string Msg = "Introdueix numero: ";
-            const string MsgTries = "You have {0} tries left";
-            int number;
-            int[] ListValues = new int[HowManyNum];
-            int tries = 5;
-            int i = 0;
-            do
-            {
-                Console.WriteLine(Msg);
-                Console.WriteLine(MsgTries, tries);
-                number = Convert.ToInt32(Console.ReadLine());
-                if ((number > 15 && number < 100) && tries > 0)
-                {
-                    ListValues[i] = number;
-                    i++;
-                }
-                else
-                {
-                    tries--;
-                }
-            }while(tries > 0 && i < ListValues.Length);
-
-            return ListValues;
+            double fahrenheit = (1.8 * Celsuis) + 32;
+            return fahrenheit;
         }
         public static void Main()
         {
-            int[] ListValuesTotal;
+        
+            const string Msg = "Introdueix els graus en la escala Celsius: ";
+            const string MsgFahrenheit = "En l'escala Fahrenheit es {0}";
+            int Celsius;
+            Console.WriteLine(Msg);
             try
             {
-                int HowManyNum = AskHowManyNum();
-                ListValuesTotal = EnterNumArray(HowManyNum);
+
+                Celsius = Convert.ToInt32(Console.ReadLine());
+                Console.WriteLine(MsgFahrenheit, CelsiusToFahrenheit(Celsius));
             }
             catch (Exception)
             {
-                Console.WriteLine("ERROR");
+                
             }
         }
     }
