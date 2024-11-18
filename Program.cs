@@ -1,36 +1,40 @@
 ﻿using System;
+using System.Net.NetworkInformation;
 
 
-//Pre: The user need to enter two numbers
-namespace FajulaEudaldEXTfourteen
+//Pre: The user need to enter a decimal number
+namespace FajulaEudaldEXTfifteen
 {
-    public class Exercicifourteen
-    {   
-        public static bool MaxOrMinim(int number1, int number2)
+    public class Exercicififteen
+    {
+        public static decimal TransformDecimalpart(decimal number)
         {
-            return number1 > number2;
+            int aux = (int)number;
+            decimal decimalNum = number - aux;
+            return decimalNum;
+        }
+        public static int TransformEnter(decimal number)
+        {
+            return ((int)number);
         }
         public static void Main()
         {
-            const string Msg = "Introdueix un numero: ";
-            const string MaxNumMsg = "Max num {0}";
-            const string MinNumMsg = "Min num {0}";
-            int number1;
-            int number2;
+            const string Msg = "Introdueix un numero decimal: ";
+            const string EnterMsg = "El numero en enter es: {0}";
+            const string DecimalMsg = "Els decimals son: {0}";
+            decimal number;
             Console.WriteLine(Msg);
             try
             {
-                number1 = Convert.ToInt32(Console.ReadLine());
-                Console.WriteLine(Msg);
-                number2 = Convert.ToInt32(Console.ReadLine());
-                Console.WriteLine(MaxNumMsg, MaxOrMinim(number1, number2) ? number1:number2);
-                Console.WriteLine(MinNumMsg, MaxOrMinim(number1, number2) ? number2:number1);
+                number = Convert.ToDecimal(Console.ReadLine());
+                Console .WriteLine(EnterMsg, TransformEnter(number));
+                Console.WriteLine(DecimalMsg, TransformDecimalpart(number));
             }
             catch (Exception)
             {
-                
+                Console.WriteLine("ERROR");
             }
         }
     }
 }   
-//Post: The user will know which number is the maximum and which number is the minimum
+//Post: The user will know the number he entered the enter part and the decimal part
