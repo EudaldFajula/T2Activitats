@@ -1,30 +1,27 @@
 ﻿using System;
-using static System.Runtime.InteropServices.JavaScript.JSType;
-using System.Numerics;
-using Microsoft.VisualBasic;
 
-//Pre: The user need to enter how many values want to enter
-namespace FajulaEudaldEXTtwelve
+
+//Pre: The user need to enter minutes
+namespace FajulaEudaldEXTthirteen
 {
-    public class Exercicitwelve
+    public class Exercicithirteen
     {
-        public static double CelsiusToFahrenheit(int Celsuis)
+        public static int MinToSec(int minutes)
         {
-            double fahrenheit = (1.8 * Celsuis) + 32;
-            return fahrenheit;
+            int seconds = minutes * 60;
+            return seconds;
         }
+        
         public static void Main()
         {
-        
-            const string Msg = "Introdueix els graus en la escala Celsius: ";
-            const string MsgFahrenheit = "En l'escala Fahrenheit es {0}";
-            int Celsius;
+            const string Msg = "Introdueix cuants minuts vols: ";
+            const string FinalMsg = "En segons serien: {0}";
+            int minutes;
             Console.WriteLine(Msg);
             try
             {
-
-                Celsius = Convert.ToInt32(Console.ReadLine());
-                Console.WriteLine(MsgFahrenheit, CelsiusToFahrenheit(Celsius));
+                minutes = Convert.ToInt32(Console.ReadLine());
+                Console.WriteLine(FinalMsg, MinToSec(minutes));
             }
             catch (Exception)
             {
@@ -33,4 +30,4 @@ namespace FajulaEudaldEXTtwelve
         }
     }
 }   
-//Post: The user will have a list of the values he entered
+//Post: The user will know how many seconds are in the minutes he entered
