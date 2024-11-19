@@ -18,8 +18,16 @@ namespace FajulaEudaldEXTeight
             Console.WriteLine(Msg);
             number = Convert.ToInt32(Console.ReadLine());
             Console.WriteLine(Msg);
-            numberTwo = Convert.ToInt32(Console.ReadLine());
-            ChangeNumbers(ref number, ref numberTwo);
+            try
+            {
+                string romeNum = Console.ReadLine();
+                Console.WriteLine(FinalMsg, RomeNumToNum(romeNum));
+            }
+            catch (FormatException)
+            {
+                Console.WriteLine(ErrorNoNum);
+            }
+            // Final Exercici 1
         }
     }
 }
