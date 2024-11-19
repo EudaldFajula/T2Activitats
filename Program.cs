@@ -11,13 +11,19 @@ namespace FajulaEudaldEXTone
         }
         public static void Main()
         {
-            const string Msg = "Introdueix un numero romà: ";
-            const string FinalMsg = "El teu número en nombres és: {0}";
+            // Inici Exercici 1
+            const string Msg = "Please write a number: ";
+            const string NaturalNum = "És natural";
+            const string NoNaturalNum = "No és natural";
+            const string ErrorNoNum = "ERROR no es un numero";
+
+            int numUser;
             Console.WriteLine(Msg);
             try
             {
-                string romeNum = Console.ReadLine();
-                Console.WriteLine(FinalMsg, RomeNumToNum(romeNum));
+                numUser = Convert.ToInt32(Console.ReadLine());
+                Console.WriteLine(NaturalNumber(numUser) ? NaturalNum : NoNaturalNum);
+
             }
             catch (FormatException)
             {
@@ -25,6 +31,7 @@ namespace FajulaEudaldEXTone
             }
             // Final Exercici 1
         }
+
     }
 }
 //Post: The user will know if his number is natural or not
