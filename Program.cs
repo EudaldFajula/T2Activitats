@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 //Pre: The user needs to enter a number 
 namespace FajulaEudaldEXTone
@@ -23,7 +23,7 @@ namespace FajulaEudaldEXTone
             {
                 numUser = Convert.ToInt32(Console.ReadLine());
                 Console.WriteLine(NaturalNumber(numUser) ? NaturalNum : NoNaturalNum);
-
+       
             }
             catch (FormatException)
             {
@@ -31,7 +31,7 @@ namespace FajulaEudaldEXTone
             }
             // Final Exercici 1
         }
-
+    
     }
 }
 //Post: The user will know if his number is natural or not
