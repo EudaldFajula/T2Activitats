@@ -11,18 +11,13 @@ namespace FajulaEudaldEXTone
         }
         public static void Main()
         {
-            // Inici Exercici 1
-            const string Msg = "Please write a number: ";
-            const string NaturalNum = "És natural";
-            const string NoNaturalNum = "No és natural";
-            const string ErrorNoNum = "ERROR no es un numero";
-
-            int numUser;
+            const string Msg = "Introdueix un numero romà: ";
+            const string FinalMsg = "El teu número en nombres és: {0}";
             Console.WriteLine(Msg);
             try
             {
-                numUser = Convert.ToInt32(Console.ReadLine());
-                Console.WriteLine(NaturalNumber(numUser) ? NaturalNum : NoNaturalNum);
+                string romeNum = Console.ReadLine();
+                Console.WriteLine(FinalMsg, RomeNumToNum(romeNum));
             }
             catch (FormatException)
             {
