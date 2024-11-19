@@ -1,43 +1,34 @@
 ﻿using System;
 
-//Pre: The user need to enter a roman numerals
-namespace FajulaEudaldEXTsixteen
+//Pre: The user needs to enter how many numbers want to enter
+namespace FajulaEudaldEXTseventeen
 {
-    public class Exercicisixteen
+    public class Exerciciseventeen
     {
-        public static int RomeNumToNum(string romeNum)
+        public static int[] PrintArray(int number, string MsgNum)
         {
-            int normalNum = 0;
-            for (int i = romeNum.Length - 1; i >= 0; i--)
+            int[] arrayNums = new int[number];
+            for(int i = 0; i < arrayNums.Length; i++)
             {
-                /*Mira quins caracter hi ha en la posicio, depenen del caracter fa una cosa o l'altra.
-                IMPORTANT els numero romans que nomes resten son el C = 100, X = 10, I = 1. (Crec que hi han mes)*/
-                switch (romeNum[i])
-                {
-                    case 'M': normalNum += 1000; break;
-                    case 'D': normalNum += 500; break;
-                    //Cas C = 100. Si hi ha una M = 1000 devant resta o si hi ha una D = 500 tambe resta
-                    case 'C': normalNum += (i < romeNum.Length - 1 && (romeNum[i + 1] == 'M' || romeNum[i + 1] == 'D') ? -100 : 100); break;
-                    case 'L': normalNum += 50; break;
-                    //Cas X = 10. Si hi ha una C= 100 devant resta o si hi ha una L = 50 tambe resta
-                    case 'X': normalNum += (i < romeNum.Length - 1 && (romeNum[i + 1] == 'C' || romeNum[i + 1] == 'L') ? -10 : 10); break;
-                    case 'V': normalNum += 5; break;
-                    //Cas I = 1. Si hi ha una X = 10 devant resta o si hi ha una V = 5 tambe resta
-                    case 'I': normalNum += (i < romeNum.Length - 1 && (romeNum[i + 1] == 'X' || romeNum[i + 1] == 'V') ? -1 : 1); break;
-                }
-
+                Console.WriteLine(MsgNum);
+                arrayNums[i] = Convert.ToInt32(Console.ReadLine());
             }
-            return normalNum;
+            return arrayNums;
         }
         public static void Main()
         {
-            const string Msg = "Introdueix un numero romà: ";
-            const string FinalMsg = "El teu número en nombres és: {0}";
+            const string Msg = "Introdueix cuants valors vols: ";
+            const string MsgNum = "Introdueix valor: ";
+            int[] arrayNums;
             Console.WriteLine(Msg);
             try
             {
-                string romeNum = Console.ReadLine();
-                Console.WriteLine(FinalMsg, RomeNumToNum(romeNum));
+                int number = Convert.ToInt32(Console.ReadLine());
+                arrayNums = PrintArray(number, MsgNum);
+                for (int i = 0; i < arrayNums.Length; i++)
+                {
+                    Console.Write($"{arrayNums[i]}, ");
+                }
             }
             catch (Exception)
             {
@@ -46,4 +37,4 @@ namespace FajulaEudaldEXTsixteen
         }
     }
 }
-//Post: The user will know the roman number in normal numbers
+//Post: The user will have his numbers in order
